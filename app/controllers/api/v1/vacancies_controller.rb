@@ -1,4 +1,6 @@
 class Api::V1::VacanciesController < ApplicationController
+  include Docs::Api::V1::VacanciesController
+
   before_action :find_vacancy, only: [:show, :update, :destroy]
 
   def index

@@ -3,6 +3,7 @@ ruby '2.3.1'
 
 gem 'faker', '~> 1.7.3'
 gem 'listen', '~> 3.1.5'
+gem 'swagger-blocks'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
