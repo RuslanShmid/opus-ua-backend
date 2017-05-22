@@ -1,0 +1,21 @@
+machine:
+  ruby:
+    version: 2.3.1
+
+dependencies:
+  pre:
+    - gem install bundler
+
+deployment:
+  development:
+    branch: master
+    heroku:
+      appname: opus-ua-backend-dev
+  staging:
+    branch: staging
+    heroku:
+      appname: opus-ua-backend-stg
+  production:
+    branch: production
+    heroku:
+      appname: opus-ua-backend-prd
