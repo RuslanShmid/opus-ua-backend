@@ -14,7 +14,7 @@ development:
 
 test:
   <<: *default
-  database: opus_ua_backend_test
+  database: opus-ua-backend_test
 
 staging:
   host: <%= ENV['OPUS_UA_BACKEND_STG_DATABASE_HOST'] %>
