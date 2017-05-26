@@ -5,7 +5,7 @@ class Api::V1::VacanciesController < ApplicationController
 
   def index
     @vacancies = Vacancy.order(:id)
-    render status: 200
+    render json: @vacancies, status: 200
   end
 
   def create
