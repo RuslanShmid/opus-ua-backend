@@ -1,4 +1,6 @@
 class Vacancy < ApplicationRecord
+  include Docs::Vacancy
+
   validates :title,
             presence: true,
             length: { in: 2..30 },

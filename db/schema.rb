@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20170522173846) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
-    t.string   "role"
     t.json     "tokens"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
@@ -48,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170522173846) do
     t.string   "city"
     t.string   "street"
     t.datetime "active_to_date"
-    t.string   "type"
+    t.string   "job_type"
     t.string   "description"
     t.string   "company"
     t.decimal  "price_per_hour"

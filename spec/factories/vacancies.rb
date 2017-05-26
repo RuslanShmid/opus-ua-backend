@@ -5,7 +5,7 @@ FactoryGirl.define do
     city { Faker::Address.city }
     street { Faker::Address.street_address }
     active_to_date { Faker::Date.between(2.days.ago, Date.today) }
-    type nil
+    job_type nil
     description { Faker::Lorem.sentences(1) }
     company { Faker::Company.name }
     price_per_hour nil
