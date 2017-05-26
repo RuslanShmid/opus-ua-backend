@@ -44,9 +44,9 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.1)
-    coffee-rails (4.2.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -247,8 +247,11 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 0.47.1)
   shoulda-matchers
-  swagger-blocks
+  swagger-blocks (~> 2.0.0)
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.15.0

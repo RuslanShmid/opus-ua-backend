@@ -16,7 +16,25 @@ class Api::V1::ApidocsController < ActionController::Base
       key :description, 'Property operations'
     end
 
-    # key :host, Rails.application.config.host
+    security_definition :access_token do
+      key :type, :apiKey
+      key :name, 'access-token'
+      key :in, :header
+    end
+
+    security_definition :client do
+      key :type, :apiKey
+      key :name, 'client'
+      key :in, :header
+    end
+
+    security_definition :uid do
+      key :type, :apiKey
+      key :name, 'uid'
+      key :in, :header
+    end
+
+    key :host, Rails.application.config.host
     key :schemes, ['http']
     key :basePath, '/api/v1'
     key :consumes, ['application/json']
@@ -24,8 +42,11 @@ class Api::V1::ApidocsController < ActionController::Base
   end
 
   SWAGGERED_CLASSES = [
+      Api::V1::Auth::RegistrationsController,
+      Api::V1::Auth::SessionsController,
       Api::V1::VacanciesController,
       Vacancy,
+      User,
       self
   ].freeze
 

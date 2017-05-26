@@ -8,6 +8,10 @@ class Api::V1::VacanciesController < ApplicationController
     render json: @vacancies, status: 200
   end
 
+  def show
+    render json: @vacancy, status: 200
+  end
+
   def create
     @vacancy = Vacancy.new(vacancy_params)
     if @vacancy.save
