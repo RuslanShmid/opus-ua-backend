@@ -37,7 +37,7 @@ module Docs::Vacancy
 
             property :active_to_date do
               key :name, 'active_to_date '
-              key :type, 'date'
+              key :type, 'string'
               key :description, 'Active To Date'
             end
 
@@ -60,9 +60,16 @@ module Docs::Vacancy
             end
 
             property :price_per_hour do
-              key :name, 'price_per_hour'
-              key :type, 'string'
-              key :description, 'Price per hour'
+              property :minimum do
+                key :name, 'minimum'
+                key :type, 'integer'
+                key :description, 'Minimal price per hour'
+              end
+              property :maximum do
+                key :name, 'maximum'
+                key :type, 'integer'
+                key :description, 'Maximum per hour'
+              end
             end
           end
         end

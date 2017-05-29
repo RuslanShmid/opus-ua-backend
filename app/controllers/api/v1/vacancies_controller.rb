@@ -49,7 +49,8 @@ class Api::V1::VacanciesController < ApplicationController
                                     :type,
                                     :description,
                                     :company,
-                                    :price_per_hour,
+                                    { price_per_hour: [:minimum,
+                                                       :maximum] },
                                     :website)
   end
 end

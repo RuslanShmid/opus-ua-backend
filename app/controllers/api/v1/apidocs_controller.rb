@@ -35,7 +35,7 @@ class Api::V1::ApidocsController < ActionController::Base
     end
 
     key :host, Rails.application.config.host
-    key :schemes, ['https']
+    key :schemes, ['http']
     key :basePath, '/api/v1'
     key :consumes, ['application/json']
     key :produces, ['application/json']

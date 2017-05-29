@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170522173846) do
     t.string   "job_type"
     t.string   "description"
     t.string   "company"
-    t.decimal  "price_per_hour"
+    t.jsonb    "price_per_hour"
     t.string   "website"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
