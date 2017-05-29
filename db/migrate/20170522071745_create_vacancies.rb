@@ -5,7 +5,7 @@ class CreateVacancies < ActiveRecord::Migration[5.0]
       t.string :category
       t.string :city
       t.string :street
-      t.datetime :active_to_date
+      t.date :active_to_date
       t.string :job_type
       t.string :description
       t.string :company
