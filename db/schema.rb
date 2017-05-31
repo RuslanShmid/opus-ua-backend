@@ -46,16 +46,17 @@ ActiveRecord::Schema.define(version: 20170522173846) do
   create_table "vacancies", force: :cascade do |t|
     t.string   "title"
     t.string   "category"
+    t.string   "email"
     t.string   "city"
-    t.string   "street"
     t.datetime "active_to_date"
     t.string   "job_type"
     t.string   "description"
     t.string   "company"
-    t.jsonb    "price_per_hour"
+    t.text     "tags",           default: [],              array: true
+    t.float    "price_per_hour"
     t.string   "website"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

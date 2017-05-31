@@ -3,7 +3,6 @@ FactoryGirl.define do
     title { Faker::Job.field }
     category { Faker::Name.last_name }
     city { Faker::Address.city }
-    street { Faker::Address.street_address }
     active_to_date { Faker::Date.between(2.days.ago, Date.today) }
     job_type nil
     description { Faker::Lorem.sentences(1) }
