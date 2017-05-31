@@ -22,17 +22,18 @@ module Docs::Vacancy
               key :required, true
             end
 
+            property :email do
+              key :name, 'email'
+              key :type, 'string'
+              key :description, 'email'
+              key :required, true
+            end
+
             property :city do
               key :name, 'city'
               key :type, 'string'
               key :description, 'City'
               key :required, true
-            end
-
-            property :street do
-              key :name, 'street'
-              key :type, 'string'
-              key :description, 'Street'
             end
 
             property :active_to_date do
@@ -59,17 +60,22 @@ module Docs::Vacancy
               key :description, 'Company'
             end
 
+            property :tags do
+              key :name, 'tags'
+              key :type, 'array'
+              key :description, 'tags'
+            end
+
             property :price_per_hour do
-              property :minimum do
-                key :name, 'minimum'
-                key :type, 'integer'
-                key :description, 'Minimal price per hour'
-              end
-              property :maximum do
-                key :name, 'maximum'
-                key :type, 'integer'
-                key :description, 'Maximum per hour'
-              end
+              key :name, 'price_per_hour'
+              key :type, 'integer'
+              key :description, 'Price per hour'
+            end
+
+            property :website do
+              key :name, 'website'
+              key :type, 'string'
+              key :description, 'website'
             end
           end
         end
@@ -93,17 +99,18 @@ module Docs::Vacancy
             key :required, true
           end
 
+          property :email do
+            key :name, 'email'
+            key :type, 'string'
+            key :description, 'email'
+            key :required, true
+          end
+
           property :city do
             key :name, 'city'
             key :type, 'string'
             key :description, 'City'
             key :required, true
-          end
-
-          property :street do
-            key :name, 'street'
-            key :type, 'string'
-            key :description, 'Street'
           end
 
           property :active_to_date do
@@ -130,10 +137,22 @@ module Docs::Vacancy
             key :description, 'Company'
           end
 
+          property :tags do
+            key :name, 'tags'
+            key :type, 'array'
+            key :description, 'tags'
+          end
+
           property :price_per_hour do
             key :name, 'price_per_hour'
-            key :type, 'string'
+            key :type, 'integer'
             key :description, 'Price per hour'
+          end
+
+          property :website do
+            key :name, 'website'
+            key :type, 'string'
+            key :description, 'website'
           end
 
           property :created_at do

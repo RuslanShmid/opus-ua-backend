@@ -43,14 +43,15 @@ class Api::V1::VacanciesController < ApplicationController
   def vacancy_params
     params.require(:vacancy).permit(:title,
                                     :category,
+                                    :email,
                                     :city,
                                     :street,
                                     :active_to_date,
                                     :type,
                                     :description,
                                     :company,
-                                    { price_per_hour: [:minimum,
-                                                       :maximum] },
+                                    { tags: [] },
+                                    :price_per_hour,
                                     :website)
   end
 end
