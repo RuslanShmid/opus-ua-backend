@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :vacancies
+      resources :vacancies do
+        resources :user_vacancies
+      end
       resources :apidocs, only: [:index]
     end
   end
