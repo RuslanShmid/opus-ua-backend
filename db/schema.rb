@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170522173846) do
     t.string   "city"
     t.string   "street"
     t.datetime "active_to_date"
-    t.string   "type"
+    t.string   "job_type"
     t.string   "description"
     t.string   "company"
     t.decimal  "price_per_hour"
