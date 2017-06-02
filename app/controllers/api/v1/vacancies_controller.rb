@@ -1,9 +1,15 @@
 class Api::V1::VacanciesController < ApplicationController
+  include Docs::Api::V1::VacanciesController
+
   before_action :find_vacancy, only: [:show, :update, :destroy]
 
   def index
     @vacancies = Vacancy.order(:id)
     render json: @vacancies, status: 200
+  end
+
+  def show
+    render json: @vacancy, status: 200
   end
 
   def create
@@ -37,12 +43,14 @@ class Api::V1::VacanciesController < ApplicationController
   def vacancy_params
     params.require(:vacancy).permit(:title,
                                     :category,
+                                    :email,
                                     :city,
                                     :street,
                                     :active_to_date,
                                     :type,
                                     :description,
                                     :company,
+                                    { tags: [] },
                                     :price_per_hour,
                                     :website)
   end

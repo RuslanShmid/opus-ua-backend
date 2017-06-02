@@ -2,9 +2,7 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
   include Docs::Api::V1::RegistrationsController
 
   def create
-    super do
-      # @resource&.master!
-    end
+    super
   end
 
   def destroy

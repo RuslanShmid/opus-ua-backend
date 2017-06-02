@@ -4,10 +4,12 @@ ruby '2.3.1'
 gem 'devise_token_auth'
 gem 'faker', '~> 1.7.3'
 gem 'listen', '~> 3.1.5'
+gem 'swagger-blocks', '~> 2.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
