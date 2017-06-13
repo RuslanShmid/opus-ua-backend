@@ -238,6 +238,7 @@ DEPENDENCIES
   devise_token_auth
   factory_girl_rails
   faker (~> 1.7.3)
+  kaminari
   listen (~> 3.1.5)
   pg (~> 0.18)
   pry

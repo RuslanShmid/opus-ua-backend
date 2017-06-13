@@ -4,8 +4,15 @@ class Api::V1::VacanciesController < ApplicationController
   before_action :find_vacancy, only: [:show, :update, :destroy]
 
   def index
-    @vacancies = Vacancy.order(:id)
-    render json: @vacancies, status: 200
+    def index
+      @vacancies = []
+      if params[:page].present? && params[:per].present?
+        @vacancies = Vacancy.order(:id).reverse_order.page(params[:page].to_i).per(params[:per].to_i)
+      else
+        @vacancies = Vacancy.order(:id).reverse_order
+      end
+      render json: @vacancies, status: 200
+    end
   end
 
   def show

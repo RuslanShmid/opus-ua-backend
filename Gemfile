@@ -10,6 +10,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
 gem 'rack-cors'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri
