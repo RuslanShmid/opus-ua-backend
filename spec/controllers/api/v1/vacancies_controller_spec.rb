@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe Api::V1::VacanciesController, type: :controller do
   let(:valid_vacancy_params) { FactoryGirl.attributes_for :vacancy }
 
-  describe 'GET #index' do
-    it 'responds with status 200' do
-      process :index, method: :get, params: {}
-      expect(response.status).to eq 200
-    end
-  end
-
   describe 'POST #create' do
     context 'WITH VALID PARAMS' do
       it 'responds successfully with an HTTP 201 status code' do
