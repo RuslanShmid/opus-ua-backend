@@ -14,6 +14,12 @@ RSpec.describe Api::V1::VacanciesController, type: :controller do
         process :create, method: :post, params: { vacancy: valid_vacancy_params }
         expect(assigns(:vacancy)).to be_a(Vacancy)
       end
+
+      it 'created new vacancy' do
+        expect do
+          process :create, method: :post, params: { vacancy: valid_vacancy_params }
+        end.to change(Vacancy, :count).by(1)
+      end
     end
 
     context 'WITH INVALID PARAMS' do
