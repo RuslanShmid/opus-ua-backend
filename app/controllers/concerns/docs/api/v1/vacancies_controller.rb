@@ -11,6 +11,33 @@ module Docs::Api::V1
           key :produces, ['application/json']
           key :tags, ['vacancy']
 
+          parameter do
+            key :in, :query
+            key :name, :title
+            key :description, 'search by title'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
+            key :name, :category
+            key :description, 'search by category'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
+            key :name, :city
+            key :description, 'search by city'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
           response 200 do
             key :description, 'Success'
           end
