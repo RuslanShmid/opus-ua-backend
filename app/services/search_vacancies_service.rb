@@ -14,9 +14,9 @@ class SearchVacanciesService
 
   def vacancies
     vacancies = Vacancy.order(:id).reverse_order
-    vacancies = vacancies.where("lower(title) LIKE ?", "%#{@title.downcase}%") if @title
-    vacancies = vacancies.where("lower(category) LIKE ?", "%#{@category.downcase}%") if @category
-    vacancies = vacancies.where("lower(city) LIKE ?", "%#{@city.downcase}%") if @city
+    vacancies = vacancies.where("lower(title) LIKE ?", "%#{@title.mb_chars.downcase}%") if @title
+    vacancies = vacancies.where("lower(category) LIKE ?", "%#{@category.mb_chars.downcase}%") if @category
+    vacancies = vacancies.where("lower(city) LIKE ?", "%#{@city.mb_chars.downcase}%") if @city
     vacancies
   end
 end
