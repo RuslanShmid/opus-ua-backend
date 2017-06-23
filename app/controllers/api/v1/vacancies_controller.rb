@@ -6,14 +6,6 @@ class Api::V1::VacanciesController < ApplicationController
   def index
     vacancies = vacancies_service.perform
     render json: vacancies, status: 200
-
-    # @vacancies = []
-    # if params[:page].present? && params[:per].present?
-    #   @vacancies = Vacancy.order(:id).reverse_order.page(params[:page].to_i).per(params[:per].to_i)
-    # else
-    #   @vacancies = Vacancy.order(:id).reverse_order
-    # end
-    # render json: @vacancies, status: 200
   end
 
   def show
@@ -48,7 +40,9 @@ class Api::V1::VacanciesController < ApplicationController
     @service ||= SearchVacanciesService.new(
       title: params[:title],
       category: params[:category],
-      city: params[:city]
+      city: params[:city],
+      page: params[:page],
+      per: params[:per]
     )
   end
 

@@ -38,6 +38,24 @@ module Docs::Api::V1
             key :format, :string
           end
 
+          parameter do
+            key :in, :query
+            key :name, :page
+            key :description, 'paginate page'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
+            key :name, :per
+            key :description, 'paginate count per page'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
           response 200 do
             key :description, 'Success'
           end
