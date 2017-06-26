@@ -42,7 +42,10 @@ class Api::V1::VacanciesController < ApplicationController
       category: params[:category],
       city: params[:city],
       page: params[:page],
-      per: params[:per]
+      per: params[:per],
+      job_type: params[:job_type],
+      prMn: params[:prMn],
+      prMx: params[:prMx]
     )
   end
 

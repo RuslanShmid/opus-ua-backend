@@ -1,16 +1,16 @@
 class CreateVacancies < ActiveRecord::Migration[5.0]
   def change
     create_table :vacancies do |t|
-      t.string :title
-      t.string :category
-      t.string :email
+      t.string :title, null: false
+      t.string :category, null: false
+      t.string :email, null: false
       t.string :city
-      t.datetime :active_to_date
+      t.datetime :active_to_date, null: false
       t.string :job_type
-      t.string :description
-      t.string :company
+      t.string :description, null: false
+      t.string :company, null: false
       t.text :tags, array: true, default: []
-      t.float :price_per_hour
+      t.float :price_per_hour, null: false
       t.string :website
       t.timestamps
     end
