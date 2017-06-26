@@ -40,6 +40,33 @@ module Docs::Api::V1
 
           parameter do
             key :in, :query
+            key :name, :job_type
+            key :description, 'search by job type'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
+            key :name, :prMn
+            key :description, 'search by min price'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
+            key :name, :prMx
+            key :description, 'search by max price'
+            key :required, false
+            key :type, :string
+            key :format, :string
+          end
+
+          parameter do
+            key :in, :query
             key :name, :page
             key :description, 'paginate page'
             key :required, false
