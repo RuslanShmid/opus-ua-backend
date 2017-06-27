@@ -3,7 +3,7 @@ class SearchVacanciesService
   def initialize(title: nil, category: nil, city: nil, page: nil, per: nil, job_type: nil, prMn: nil, prMx: nil)
     @title = title unless title.to_s.empty?
     @category = category unless category.to_s.empty?
-    @city = city unless category.to_s.empty?
+    @city = city unless city.to_s.empty?
     @page = page.to_i unless page.to_s.empty?
     @per = per.to_i unless per.to_s.empty?
     @job_type = job_type unless job_type.to_s.empty?
