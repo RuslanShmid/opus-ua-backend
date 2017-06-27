@@ -1,14 +1,14 @@
 class SearchVacanciesService
 
   def initialize(title: nil, category: nil, city: nil, page: nil, per: nil, job_type: nil, prMn: nil, prMx: nil)
-    @title = title
-    @category = category
-    @city = city
-    @page = page.to_i if page
-    @per = per.to_i if per
-    @job_type = job_type
-    @prMn = prMn.to_i if prMn
-    @prMx = prMx.to_i if prMx
+    @title = title unless title.empty?
+    @category = category unless category.empty?
+    @city = city unless category.empty?
+    @page = page.to_i unless page.empty?
+    @per = per.to_i unless per.empty?
+    @job_type = job_type unless job_type.empty?
+    @prMn = prMn.to_i unless prMn.empty?
+    @prMx = prMx.to_i unless prMx.empty?
     @vacancies = Vacancy.order(:id).reverse_order
   end
 
