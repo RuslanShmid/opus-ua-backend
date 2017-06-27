@@ -22,7 +22,6 @@ class SearchVacanciesService
 
   def vacancies
     @vacancies = @vacancies.where("price_per_hour <= #{@prMx}") if @prMx
-    binding.pry
     @vacancies = @vacancies.where("price_per_hour >= #{@prMn}") if @prMn
     @vacancies = @vacancies.where("lower(job_type) LIKE ?", "%#{@job_type.mb_chars.downcase}%") if @job_type
     @vacancies = @vacancies.where("lower(title) LIKE ?", "%#{@title.mb_chars.downcase}%") if @title
