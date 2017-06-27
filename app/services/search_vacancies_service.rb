@@ -7,7 +7,6 @@ class SearchVacanciesService
     @page = page.to_i unless page.empty?
     @per = per.to_i unless per.empty?
     @job_type = job_type unless job_type.empty?
-    binding.pry
     @prMn = prMn.to_i unless prMn.empty?
     @prMx = prMx.to_i unless prMx.empty?
     @vacancies = Vacancy.order(:id).reverse_order
