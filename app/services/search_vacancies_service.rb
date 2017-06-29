@@ -30,7 +30,6 @@ class SearchVacanciesService
     }
     vacancies = @vacancies.where("lower(job_type) iLIKE #{@job_type.join(' OR lower(job_type) LIKE ')}") if @job_type
     @vacancies = @vacancies.where("price_per_hour <= #{@prMx}") if @prMx
-    @vacancies = @vacancies.where("price_per_hour <= #{@prMx}") if @prMx
     @vacancies = @vacancies.where("price_per_hour >= #{@prMn}") if @prMn
     @vacancies = @vacancies.where("lower(category) LIKE ?", "%#{@category.mb_chars.downcase}%") if @category
     @vacancies = @vacancies.where("lower(title) LIKE ?", "%#{@title.mb_chars.downcase}%") if @title
