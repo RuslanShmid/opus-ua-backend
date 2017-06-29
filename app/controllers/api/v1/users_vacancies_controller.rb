@@ -7,9 +7,7 @@ class Api::V1::UsersVacanciesController < ApplicationController
   end
 
   def create
-    binding.pry
     @users_vacancy = UsersVacancy.new(users_vacancy_params)
-    binding.pry
     if @users_vacancy.save
       render json: @users_vacancy, status: 201
     else
