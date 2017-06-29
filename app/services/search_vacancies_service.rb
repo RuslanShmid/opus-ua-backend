@@ -21,11 +21,18 @@ class SearchVacanciesService
   private
 
   def vacancies
+    @job_type = @job_type.split('|') if @job_type
+    @job_type = @job_type.map {|item| 
+      item.insert(0, '%')
+      item.insert(-1, '%')
+      item.insert(0, "'")
+      item.insert(-1, "'")
+    }
+    vacancies = @vacancies.where("lower(job_type) iLIKE #{@job_type.join(' OR lower(job_type) LIKE ')}") if @job_type
     @vacancies = @vacancies.where("price_per_hour <= #{@prMx}") if @prMx
     @vacancies = @vacancies.where("price_per_hour >= #{@prMn}") if @prMn
-    @vacancies = @vacancies.where("lower(job_type) LIKE ?", "%#{@job_type.mb_chars.downcase}%") if @job_type
-    @vacancies = @vacancies.where("lower(title) LIKE ?", "%#{@title.mb_chars.downcase}%") if @title
     @vacancies = @vacancies.where("lower(category) LIKE ?", "%#{@category.mb_chars.downcase}%") if @category
+    @vacancies = @vacancies.where("lower(title) LIKE ?", "%#{@title.mb_chars.downcase}%") if @title
     @vacancies = @vacancies.where("lower(city) LIKE ?", "%#{@city.mb_chars.downcase}%") if @city
     @vacancies
   end
