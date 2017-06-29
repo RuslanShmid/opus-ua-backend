@@ -28,6 +28,7 @@ class SearchVacanciesService
         item.insert(-1, '%')
         item.insert(0, "'")
         item.insert(-1, "'")
+        item.mb_chars.downcase
       }
       @vacancies = @vacancies.where("lower(job_type) iLIKE #{@job_type.join(' OR lower(job_type) LIKE ')}")
     end
