@@ -8,7 +8,7 @@ class UsersVacancy < ApplicationRecord
     if @file
       self.filename = @file.original_filename
       self.content_type = @file.content_type
-      self.file_contents = @file.read
+      self.file_contents = @file.read.force_encoding('ISO-8859-1')
     end
   end
 

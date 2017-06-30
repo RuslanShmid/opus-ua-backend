@@ -11,6 +11,7 @@ gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
 gem 'rack-cors'
 gem 'kaminari'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platform: :mri
