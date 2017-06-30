@@ -29,5 +29,7 @@ module OpusUaBackend
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use Rack::MethodOverride
+    config.action_mailer.default_options = { from: 'contact.opus.ua@gmail.com' }
+    config.action_mailer.smtp_settings = { enable_starttls_auto: false  }
   end
 end

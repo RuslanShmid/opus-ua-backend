@@ -50,11 +50,13 @@ ActiveRecord::Schema.define(version: 20170629105305) do
     t.string   "email",                         null: false
     t.string   "full_name",                     null: false
     t.string   "description",                   null: false
-    t.string   "filename",                      null: false
-    t.string   "content_type",                  null: false
-    t.binary   "file_contents",                 null: false
+    t.string   "filename"
+    t.string   "content_type"
+    t.binary   "file_contents"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["user_id"], name: "index_users_vacancies_on_user_id", using: :btree
+    t.index ["vacancy_id"], name: "index_users_vacancies_on_vacancy_id", using: :btree
   end
 
   create_table "vacancies", force: :cascade do |t|
