@@ -11,6 +11,12 @@ module Docs::Api::V1
           key :produces, ['application/json']
           key :tags, ['vacancy']
 
+          security do
+            key :access_token, []
+            key :client, []
+            key :uid, []
+          end
+
           parameter do
             key :in, :query
             key :name, :title
@@ -83,6 +89,15 @@ module Docs::Api::V1
             key :format, :string
           end
 
+          parameter do
+            key :in, :query
+            key :name, :user_id
+            key :description, 'find by id'
+            key :required, false
+            key :type, :integer
+            key :format, :integer
+          end
+
           response 200 do
             key :description, 'Success'
           end
@@ -93,6 +108,12 @@ module Docs::Api::V1
           key :operationId, 'addVacancy'
           key :produces, ['application/json']
           key :tags, ['vacancy']
+
+          security do
+            key :access_token, []
+            key :client, []
+            key :uid, []
+          end
 
           parameter do
             key :name, :vacancy
@@ -116,6 +137,12 @@ module Docs::Api::V1
           key :description, 'Updates a certain Vacancy'
           key :operationId, 'findVacancyById'
           key :tags, ['vacancy']
+
+          security do
+            key :access_token, []
+            key :client, []
+            key :uid, []
+          end
 
           parameter do
             key :name, :id
@@ -153,7 +180,13 @@ module Docs::Api::V1
           key :description, 'Returns a certain Vacancy'
           key :operationId, 'findVacancyById'
           key :tags, ['vacancy']
-          
+
+          security do
+            key :access_token, []
+            key :client, []
+            key :uid, []
+          end
+
           parameter do
             key :name, :id
             key :in, :path
@@ -179,6 +212,12 @@ module Docs::Api::V1
           key :description, 'Destroys a Vacancy'
           key :operationId, 'deleteVacancyById'
           key :tags, ['vacancy']
+
+          security do
+            key :access_token, []
+            key :client, []
+            key :uid, []
+          end
 
           parameter do
             key :name, :id

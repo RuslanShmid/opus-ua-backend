@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      get '/users/:user_id/vacancies' => 'vacancies#index'
       resources :vacancies
       resources :users_vacancies
       resources :apidocs, only: [:index]

@@ -1,7 +1,7 @@
 class Api::V1::VacanciesController < ApplicationController
   include Docs::Api::V1::VacanciesController
 
-  before_action :find_vacancy, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     vacancies = vacancies_service.perform
@@ -9,11 +9,12 @@ class Api::V1::VacanciesController < ApplicationController
   end
 
   def show
+    @vacancy = Vacancy.find(params[:id])
     render json: @vacancy, status: 200
   end
 
   def create
-    @vacancy = Vacancy.new(vacancy_params)
+    @vacancy = current_user.vacancies.build(vacancy_params)
     if @vacancy.save
       render json: @vacancy, status: 201
     else
@@ -22,6 +23,7 @@ class Api::V1::VacanciesController < ApplicationController
   end
 
   def update
+    @vacancy = current_user.vacancies.find(params[:id])
     if @vacancy.update(vacancy_params)
       render json: @vacancy, status: 200
     else
@@ -30,6 +32,7 @@ class Api::V1::VacanciesController < ApplicationController
   end
 
   def destroy
+    @vacancy = current_user.vacancies.find(params[:id])
     @vacancy.destroy
     render json: {}, status: 200
   end
@@ -45,12 +48,9 @@ class Api::V1::VacanciesController < ApplicationController
       per: params[:per],
       job_type: params[:job_type],
       prMn: params[:prMn],
-      prMx: params[:prMx]
+      prMx: params[:prMx],
+      user: params[:user_id]
     )
-  end
-
-  def find_vacancy
-    @vacancy = Vacancy.find(params[:id])
   end
 
   def vacancy_params

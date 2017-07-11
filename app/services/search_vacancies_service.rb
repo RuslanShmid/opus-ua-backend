@@ -1,6 +1,6 @@
 class SearchVacanciesService
 
-  def initialize(title: nil, category: nil, city: nil, page: nil, per: nil, job_type: nil, prMn: nil, prMx: nil)
+  def initialize(title: nil, category: nil, city: nil, page: nil, per: nil, job_type: nil, prMn: nil, prMx: nil, user: nil)
     @title = title unless title.to_s.empty?
     @category = category unless category.to_s.empty?
     @city = city unless city.to_s.empty?
@@ -9,7 +9,11 @@ class SearchVacanciesService
     @job_type = job_type unless job_type.to_s.empty?
     @prMn = prMn.to_i unless prMn.to_s.empty?
     @prMx = prMx.to_i unless prMx.to_s.empty?
-    @vacancies = Vacancy.order(:id).reverse_order
+    @vacancies = if user
+                   User.find(user).vacancies.order(:id).reverse_order
+                 else
+                   Vacancy.order(:id).reverse_order
+                 end
   end
 
   def perform
@@ -22,8 +26,8 @@ class SearchVacanciesService
 
   def vacancies
     if @job_type
-      @job_type = @job_type.split('|') 
-      @job_type = @job_type.map {|item| 
+      @job_type = @job_type.split('|')
+      @job_type = @job_type.map {|item|
         item.insert(0, '%')
         item.insert(-1, '%')
         item.insert(0, "'")

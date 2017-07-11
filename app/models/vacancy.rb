@@ -1,5 +1,6 @@
 class Vacancy < ApplicationRecord
   include Docs::Vacancy
+  belongs_to :user
   has_many :users_vacancies
 
   validates :title,

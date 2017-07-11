@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 20170629105305) do
     t.text     "tags",           default: [],              array: true
     t.float    "price_per_hour",              null: false
     t.string   "website"
+    t.integer  "user_id",                     null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["user_id"], name: "index_vacancies_on_user_id", using: :btree
   end
 
 end

@@ -12,6 +12,8 @@ class CreateVacancies < ActiveRecord::Migration[5.0]
       t.text :tags, array: true, default: []
       t.float :price_per_hour, null: false
       t.string :website
+      t.references :user, null: false
+
       t.timestamps
     end
   end
