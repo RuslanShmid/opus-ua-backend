@@ -43,7 +43,7 @@ RSpec.configure do |config|
 
   config.include Rails.application.routes.url_helpers
 
-  # config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -63,7 +63,7 @@ RSpec.configure do |config|
     request.env['HTTP_ACCEPT_LANGUAGE'] = "en"
   end
 
-  # config.extend SessionHelper, type: :controller
+  config.extend SessionHelper, type: :controller
 
   config.after(:each) do
     DatabaseCleaner.clean
